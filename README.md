@@ -80,19 +80,4 @@ Output directory:
 
 ```bash
 dist
-```
 
-## Submission Checklist
-
-- [x] Public GitHub repository ready project files
-- [x] README with project description
-- [x] Local setup instructions
-- [x] Freighter wallet setup
-- [x] Wallet connect
-- [x] Wallet disconnect
-- [x] XLM balance display
-- [x] XLM transaction flow on testnet
-- [x] Success/failure transaction feedback
-- [x] Transaction hash display
-- [x] Screenshots added after running with Freighter
-- [x] Deployed public app URL added after hosting
