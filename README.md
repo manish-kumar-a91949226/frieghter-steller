@@ -1,5 +1,7 @@
 # Stellar White Belt Payment dApp
 
+**Live Link**: [https://frieghter-steller.vercel.app/](https://frieghter-steller.vercel.app/)
+
 A Level 1 White Belt Stellar dApp for testnet. The app connects to Freighter, shows the connected wallet address and XLM balance, can fund the wallet with Friendbot, and sends XLM payments on Stellar testnet with success/failure feedback and a transaction hash.
 
 ## Features
@@ -49,12 +51,20 @@ npm run dev
 
 ## Screenshots
 
-Add these screenshots before final submission:
+- Landing Page:  
+  ![Landing Page](assets/landing%20page.png)
 
-- Wallet connected state: `screenshots/wallet-connected.png`
-- Balance displayed: `screenshots/balance-displayed.png`
-- Successful testnet transaction: `screenshots/successful-transaction.png`
-- Transaction result shown to the user: `screenshots/transaction-result.png`
+- Wallet Connected:  
+  ![Wallet Connected](assets/wallet%20connected.png)
+
+- Approve PopUp:  
+  ![Approve PopUp](assets/approve_popUP.png)
+
+- Transaction Success:  
+  ![Success](assets/succes.png)
+
+- Transaction Verified:  
+  ![Verified](assets/verified.png)
 
 ## Deployment
 
@@ -84,5 +94,5 @@ dist
 - [x] XLM transaction flow on testnet
 - [x] Success/failure transaction feedback
 - [x] Transaction hash display
-- [ ] Screenshots added after running with Freighter
-- [ ] Deployed public app URL added after hosting
+- [x] Screenshots added after running with Freighter
+- [x] Deployed public app URL added after hosting
