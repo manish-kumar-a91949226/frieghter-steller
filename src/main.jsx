@@ -74,7 +74,7 @@ function App() {
     [publicKey]
   );
 
-  const refreshBalance = useCallback(async (address = publicKey) => {
+  const refreshBalance = useCallback(async (address) => {
     if (!address) return;
 
     try {
@@ -87,7 +87,7 @@ function App() {
         message: `Could not load balance. ${error.message}`
       });
     }
-  }, [publicKey]);
+  }, []);
 
   const connectWallet = useCallback(async () => {
     setIsBusy(true);
@@ -248,7 +248,7 @@ function App() {
               </div>
 
               <div className="button-grid">
-                <button type="button" onClick={() => refreshBalance()} disabled={isBusy}>
+                <button type="button" onClick={() => refreshBalance(publicKey)} disabled={isBusy}>
                   <RefreshCw size={18} />
                   Refresh
                 </button>
