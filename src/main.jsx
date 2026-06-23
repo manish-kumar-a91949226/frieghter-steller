@@ -94,15 +94,18 @@ function App() {
     setStatus({ type: "loading", message: "Waiting for Freighter approval..." });
 
     try {
-      const connected = await isConnected();
-      if (!connected) {
+      const connectedResult = await isConnected();
+      const isFreighterConnected = typeof connectedResult === "object" ? connectedResult.isConnected : connectedResult;
+      if (!isFreighterConnected) {
         throw new Error("Freighter is not installed or enabled in this browser.");
       }
 
-      const allowed = await isAllowed();
-      const accessResult = allowed ? await getAddress() : await requestAccess();
+      const allowedResult = await isAllowed();
+      const isUserAllowed = typeof allowedResult === "object" ? allowedResult.isAllowed : allowedResult;
+      const accessResult = isUserAllowed ? await getAddress() : await requestAccess();
       const address = parseFreighterResult(accessResult);
 
+      if (accessResult?.error) throw new Error(accessResult.error);
       if (!address) throw new Error("Freighter did not return a public key.");
 
       setPublicKey(address);
@@ -174,6 +177,8 @@ function App() {
       const signedXdr = await signTransaction(transaction.toXDR(), {
         networkPassphrase: Networks.TESTNET
       });
+
+      if (signedXdr?.error) throw new Error(signedXdr.error);
 
       setStatus({ type: "loading", message: "Submitting transaction to Stellar testnet..." });
       const result = await horizonFetch("/transactions", {
